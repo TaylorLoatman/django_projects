@@ -53,8 +53,13 @@
         <div class="col-8">
           <h1 class="mt-2">My Site</h1>
           <hr class="mt-0 mb-4">
-          {% block content %}
-          {% endblock %}
+          {% comment %} {% if user.is_authenticated %} {% endcomment %}
+            {% block content %}
+            {% endblock %}
+          {% comment %} {% else %}
+            <p>Login <a href="/login">Here</a></p>
+          {% endif %} {% endcomment %}
+
         </div>
       </div>
     </div>
